@@ -5,7 +5,7 @@ import calendar
 import mysql.connector
 from mysql.connector import Error
 
-
+import pdb
 import mysql.connector
 #def bazad:
 
@@ -22,8 +22,9 @@ print('min=',min)
 mes=int(now.month)
 chis=int(now.day)
 
-
+post=0
 nomden=calendar.weekday(ye,mes,chis)
+#print('nomden=',nomden)
 kalen={}
 kalen={0:"mondey",
          1:"tuesday",
@@ -32,27 +33,40 @@ kalen={0:"mondey",
          4:"friday"}
 den=kalen.get(nomden)
 
-
-
-
-
-    
-conn = mysql.connector.connect(
+try:
+   conn = mysql.connector.connect(
          user='root',
          #password='lizard',
          host='localhost',
          database='rasp')
+   if conn.is_connected():
+            print('Connected to MySQL database')
+
+except Error as e:
+        print(e)
 
 
+n=0
 cur = conn.cursor()
-print("cur=",cur)
-print('den=',den)
+#pdb.set_trace() 
 #query="SELECT * FROM %s WHERE chasi LIKE \"%" + chas +"%\" "
-query = 'SELECT * FROM "%%%s" WHERE chasi LIKE "%%%s"'
+#query = 'SELECT * FROM "%s" WHERE chasi LIKE "%s"'
 #cur.execute(sql, (us,))
+chasi=12
+#cur.execute(query,den,chas)
+#query = 'SELECT * FROM mondey WHERE chasi >="%s"' работает
+#cur.execute(query,chas)
+#den="mondey"
+chas=12
+nasden1=nomden+1
+#query = 'SELECT nasden FROM dnined'
 
-cur.execute(query,(den,),(chas,))
-for (post) in cur:
-  print(post)
+#query = 'SELECT * FROM den WHERE chasi >="%s"'
+#cur.execute(query,chas)
 
+query = ("SELECT * FROM %s" % den)
+cur.execute(query)
+print('den=',den)
+for (n) in cur:
+  print(n)
     
