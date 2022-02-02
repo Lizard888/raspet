@@ -8,7 +8,7 @@ from mysql.connector import Error
 import pdb
 import mysql.connector
 #def bazad:
-
+ur=[]
 now = datetime.datetime.now()
 
 #@bot.message_handler(commands=['start'])
@@ -54,19 +54,24 @@ cur = conn.cursor()
 #cur.execute(sql, (us,))
 chasi=12
 #cur.execute(query,den,chas)
-#query = 'SELECT * FROM mondey WHERE chasi >="%s"' работает
+#query = 'SELECT * FROM mondey WHERE chasi >="%s"' #работает
 #cur.execute(query,chas)
 #den="mondey"
 chas=12
 nasden1=nomden+1
-#query = 'SELECT nasden FROM dnined'
 
-#query = 'SELECT * FROM den WHERE chasi >="%s"'
-#cur.execute(query,chas)
 
-query = ("SELECT * FROM %s" % den)
+
+
+query = ("SELECT * FROM %s" % den) #работает
 cur.execute(query)
+#query = '"SELECT * FROM %s" % den WHERE chasi >="%s"'
+#cur.execute(query,chas)
 print('den=',den)
 for (n) in cur:
   print(n)
+  kk=n[2]
+  if kk>=chas:
+     ur.append(kk)
     
+print(ur[0])
