@@ -49,29 +49,31 @@ except Error as e:
 n=0
 cur = conn.cursor()
 #pdb.set_trace() 
-#query="SELECT * FROM %s WHERE chasi LIKE \"%" + chas +"%\" "
-#query = 'SELECT * FROM "%s" WHERE chasi LIKE "%s"'
-#cur.execute(sql, (us,))
+
 chasi=12
 #cur.execute(query,den,chas)
 #query = 'SELECT * FROM mondey WHERE chasi >="%s"' #работает
 #cur.execute(query,chas)
 #den="mondey"
-chas=12
+#chas=12
 nasden1=nomden+1
-
+ur={}
 
 
 
 query = ("SELECT * FROM %s" % den) #работает
 cur.execute(query)
-#query = '"SELECT * FROM %s" % den WHERE chasi >="%s"'
+#query = 'SELECT * FROM %s % den WHERE chasi LIKE %s'
 #cur.execute(query,chas)
 print('den=',den)
 for (n) in cur:
-  print(n)
-  kk=n[2]
-  if kk>=chas:
-     ur.append(kk)
-    
-print(ur[0])
+  kk1=n[1]
+  kk2=n[2]
+  kk3=n[3] 
+  if kk2>=chasi:
+     kk4=str(kk2)+"."+str(kk3)
+     print(kk4,"  ",kk1)
+     
+     
+
+   
