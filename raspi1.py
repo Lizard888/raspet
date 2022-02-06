@@ -6,14 +6,17 @@ import datetime
 import re
 import calendar
 from datab1 import bazad
-ld=[]
-Token1="948381879:AAEO07_DU1z-CO67NRWIi8HX_jeLNfQVqPo" #Totochka
+#global ld
+#ld=[]
+Token1="5153409742:AAE-CeeF-nowya8PefXs5qm4_Vqu8xCSZeo"# Uroki
 bot = telebot.TeleBot(Token1)
 @bot.message_handler(commands=['start'])
 def start_command(message):
-
+  
+   ld=[]
    bazad(ld)
    i=0
+   print(ld)
    for (i) in  ld:
          bot.send_message(  message.chat.id,i)
          print(i)
