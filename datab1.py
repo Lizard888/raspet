@@ -35,8 +35,8 @@ def bazad(ld):
          2:"wednesday",
          3:"thursday",
          4:"friday"}
-  #den=kalen.get(nomden)
-  den="mondey"
+  den=kalen.get(nomden)
+
   try:
     conn = mysql.connector.connect(
          user='root',
@@ -54,7 +54,7 @@ def bazad(ld):
   cur = conn.cursor()
 #pdb.set_trace() 
 
-  chasi=12
+  chasi=chis
 
   nasden1=nomden+1
   #ur={}

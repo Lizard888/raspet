@@ -15,9 +15,11 @@ now = datetime.datetime.now()
 
 ye=int(now.year)
 
-chas=int(now.hour)
-min=int( now.minute)
+#chas=int(now.hour)
+#chas12
 
+#mi=int( now.minute)
+mi=19
 mes=int(now.month)
 chis=int(now.day)
 
@@ -50,8 +52,8 @@ n=0
 cur = conn.cursor()
 #pdb.set_trace() 
 
+#chasi=chas
 chasi=12
-
 nasden1=nomden+1
 ur={}
 
@@ -60,17 +62,41 @@ ld=[]
 query = ("SELECT * FROM %s" % den) #работает
 cur.execute(query)
 
+
+
+kkk1=[]
+kkk2=[]
+kkk3=[]
+
 print('den=',den)
 for (n) in cur:
-    kk1=n[1]
-    kk2=n[2]
-    kk3=n[3] 
-    if kk2>=chasi:
-     kk4=str(kk2)+"."+str(kk3)
-     print(kk4,"  ",kk1)
-     kk5=kk4+"  "+kk1
-     ld.append(kk5)
-     
+    
+    if n[2]>12:
+        kkk2.append(n[2])
+        kkk1.append(n[1])
+        kkk3.append(n[3])
+    
+    
+        
+print('ld=',ld)
+i=0
+print('kkk1=',kkk1)
+print('kkk2=',kkk2)
+print('kkk3=',kkk3)
+kk=0
+i=0
+if abs(kkk3[0]-mi)>2:i=1
+while i!=len(kkk1):
+     ld.append(kkk1[i])
+     i=i+1
+
+print(ld)
+
+
+
+
+
+
 
 
 
