@@ -15,11 +15,11 @@ now = datetime.datetime.now()
 
 ye=int(now.year)
 
-#chas=int(now.hour)
+chas=int(now.hour)
 #chas12
 
-#mi=int( now.minute)
-mi=19
+mi=int( now.minute)
+#mi=19
 mes=int(now.month)
 chis=int(now.day)
 
@@ -32,8 +32,8 @@ kalen={0:"mondey",
          2:"wednesday",
          3:"thursday",
          4:"friday"}
-#den=kalen.get(nomden)
-den="mondey"
+den=kalen.get(nomden)
+#den="mondey"
 
 try:
     conn = mysql.connector.connect(
