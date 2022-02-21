@@ -16,10 +16,10 @@ now = datetime.datetime.now()
 ye=int(now.year)
 
 chas=int(now.hour)
-#chas12
+chas=10
 
 mi=int( now.minute)
-#mi=19
+mi=19
 mes=int(now.month)
 chis=int(now.day)
 
@@ -32,8 +32,8 @@ kalen={0:"mondey",
          2:"wednesday",
          3:"thursday",
          4:"friday"}
-den=kalen.get(nomden)
-#den="mondey"
+#den=kalen.get(nomden)
+den="mondey"
 
 try:
     conn = mysql.connector.connect(
@@ -71,7 +71,7 @@ kkk3=[]
 print('den=',den)
 for (n) in cur:
     
-    if n[2]>12:
+    if n[2]>chasi:
         kkk2.append(n[2])
         kkk1.append(n[1])
         kkk3.append(n[3])
